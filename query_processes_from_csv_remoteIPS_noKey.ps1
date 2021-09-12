@@ -15,7 +15,7 @@ $apitoken = 'insert CB API Key'
 $csv = Import-Csv -Path 'insert CSV file output from process_search_noAPIkey.ps1 script'
 
 foreach($item in $csv) {
-    $uri = ('https://ndwuscyblvcbm01.gold.rtgold.nima.mil:8443/api/v2/process/'+$item.id+'/'+$item.segment_id+'/event')
+    $uri = ('<redacted>:8443/api/v2/process/'+$item.id+'/'+$item.segment_id+'/event')
     ForEach-Object {
         $requests = Invoke-RestMethod -Uri $uri -Headers @{ "x-auth-token"= $apitoken } -Method 'GET' -ContentType 'application/json'
         $processes = $requests.process
